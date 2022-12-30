@@ -1,4 +1,5 @@
-int foo(int x)    /* Function definition */
+
+int foo(int x)
 {
     return x + 5;
 }
