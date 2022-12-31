@@ -1,20 +1,18 @@
 #include <stdio.h>
-
 #include <stdlib.h>
 
 void showSplash() {
   char ch;
-  FILE * fp;
+  FILE *splashFp;
 
-  fp = fopen("/home/samiur/Apps/ParqKit/assets/splash.txt", "r"); // read mode
-
-  if (fp == NULL) {
+  splashFp = fopen("/home/samiur/Apps/ParqKit/assets/splash.txt", "r"); // read mode
+  if (splashFp == NULL) {
     perror("Error while opening splash screen	.\n");
-    exit(EXIT_FAILURE);
+    exit(1);
   }
 
-  while ((ch = fgetc(fp)) != EOF)
+  while ((ch = fgetc(splashFp)) != EOF)
     printf("%c", ch);
 
-  fclose(fp);
+  fclose(splashFp);
 }
