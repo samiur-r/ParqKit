@@ -23,6 +23,7 @@ int add_lot(struct parking *p, int available_lots, int occupied){
 	p[occupied].vehicle_reg = reg;
 	p[occupied].owner_name = name;
 	printf("Successfully occupied parking lot %d", occupied);
+	writeToDB();
 	return 1;
 }
 
@@ -33,6 +34,21 @@ int free_lot(struct parking *p, int lot_num){
 	}
 	printf("Successfully freed the parking lot");
 	return 1;
+}
+
+int writeToDB(struct parking *p) {
+	 FILE *parkingFp;
+	 parkingFp = fopen ("/home/samiur/Apps/ParqKit/assets/parking.txt", "w");
+
+	 if (parkingFp == NULL) {
+		 perror("Error while opening parking database .\n");
+		 exit(1);
+	   }
+
+	 fwrite (&p, sizeof(struct parking), 1, parkingFp);
+	 fwrite (&p, sizeof(struct parking), 1, parkingFp);
+
+	 fclose(parkingFp);
 }
 
 int park(){

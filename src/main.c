@@ -4,7 +4,7 @@
 #include "../headers/auth.h"
 #include "../headers/park.h"
 
-int main(){
+int main(void){
 	showSplash();
     int isAuthenticated = login();
 
