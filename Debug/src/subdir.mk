@@ -7,6 +7,7 @@ C_SRCS += \
 ../src/auth.c \
 ../src/foo.c \
 ../src/main.c \
+../src/parking.c \
 ../src/splash.c 
 
 O_SRCS += \
@@ -16,12 +17,14 @@ C_DEPS += \
 ./src/auth.d \
 ./src/foo.d \
 ./src/main.d \
+./src/parking.d \
 ./src/splash.d 
 
 OBJS += \
 ./src/auth.o \
 ./src/foo.o \
 ./src/main.o \
+./src/parking.o \
 ./src/splash.o 
 
 
@@ -37,7 +40,7 @@ src/%.o: ../src/%.c src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/auth.d ./src/auth.o ./src/foo.d ./src/foo.o ./src/main.d ./src/main.o ./src/splash.d ./src/splash.o
+	-$(RM) ./src/auth.d ./src/auth.o ./src/foo.d ./src/foo.o ./src/main.d ./src/main.o ./src/parking.d ./src/parking.o ./src/splash.d ./src/splash.o
 
 .PHONY: clean-src
 
